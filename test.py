@@ -1,23 +1,31 @@
-#chiedere all- utente quante parole vuole inserire, permettere l'inserimento di un numero di parole
-#e stampare la parola più corta senza utilizzare def 
 
 
-#fallo con il while
-i = 0
-n = int(input("Quante parole vuoi inserire? "))
-parole = []
 
-while i < n:
-    parola = input(f"Inserisci la parola {i + 1}: ")
-    parole.append(parola)
-    i += 1
+# Scrivere un programma che chiede all'utente di inserire un numero n e poi chiede all'utente di inserire n parole. Il programma deve stampare la parola più corta tra quelle inserite dall'utente. Se ci sono più parole con la stessa lunghezza minima, il programma deve stampare la prima parola inserita dall'utente tra quelle con lunghezza minima.  
 
-parola_corta = parole[0]
-i = 1
+n = int(input("Inserisci un numero: "))
+if n < 0:
+    print("Errore")
+else:
+    if n == 0:
+        print("Errore")
+    else:
+        parole = []
+        for i in range(n):
+            parola = input("Inserisci una parola: ")
+            parole.append(parola)
+        if len(parole) < n:
+            print("Errore")
+        else:
+            if len(parole) > n:
+                print("Errore")
+            else:
+                lunghezza_minima = len(parole[0])
+                parola_minima = parole[0]
+                for parola in parole:
+                    if len(parola) < lunghezza_minima:
+                        lunghezza_minima = len(parola)
+                        parola_minima = parola
+                print(parola_minima)
 
-while i < n:
-    if len(parole[i]) < len(parola_corta):
-        parola_corta = parole[i]
-    i += 1
 
-print("La parola più corta è:", parola_corta)
