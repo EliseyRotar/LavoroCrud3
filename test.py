@@ -1,31 +1,47 @@
+#Programma crea la tua scheda allenamento (timer)
+#Crea tipo allenamento
+#Numero di esercizi 
+#Numero serie
+#Tipi esercizi e il loro nome
+#Tempo esercizi "timer"/"No timer"
+#PROBLEMI: eccezzioni, numeri scritti in parole, maiuscole
+allenamento1 = {
+    "GruppoAllenante":"Schiena",
+    "N°Esercizi":0,
+    "TipoAllenamento":"Timer", #timer/senza timer/misto
+    "TempoRiscaldamento":0, #secondi
+    "TempoRipresa":0 #secondi
 
+}
 
+allenamenti = [allenamento1]
 
-# Scrivere un programma che chiede all'utente di inserire un numero n e poi chiede all'utente di inserire n parole. Il programma deve stampare la parola più corta tra quelle inserite dall'utente. Se ci sono più parole con la stessa lunghezza minima, il programma deve stampare la prima parola inserita dall'utente tra quelle con lunghezza minima.  
+esercizio1 = {
+    "TipologiaEsercizio":"Timer", #timer/senza timer
+    "TempoAllenamento":10,
+    "Serie":0
+}
 
-n = int(input("Inserisci un numero: "))
-if n < 0:
-    print("Errore")
-else:
-    if n == 0:
-        print("Errore")
-    else:
-        parole = []
-        for i in range(n):
-            parola = input("Inserisci una parola: ")
-            parole.append(parola)
-        if len(parole) < n:
-            print("Errore")
-        else:
-            if len(parole) > n:
-                print("Errore")
-            else:
-                lunghezza_minima = len(parole[0])
-                parola_minima = parole[0]
-                for parola in parole:
-                    if len(parola) < lunghezza_minima:
-                        lunghezza_minima = len(parola)
-                        parola_minima = parola
-                print(parola_minima)
+esercizi = [esercizio1]
 
+def creaEsercizio(esercizio):
+    esercizio = {
+        "TipologiaEsercizio":tipoEsercizio,
+        "TempoAllenamento":tempoAllenamento,
+        "Serie": numeroSerie
+    }
+    tipoEsercizio = input("Inserire la parola timer se si vuole avere un timer per questo esercizio inserire la parola  ")
+    tempoAllenamento = int(input("Inserisci il tempo richiesto per questo esercizio: "))
+    numeroSerie = int(input("Inserire il numero di serie: "))
 
+def creaAllenamento(allenamento):
+    allenamento = {
+        "GruppoAllenante":gruppoAllenante,
+        "N°Esercizi":nEsercizi,
+        "TipoAllenamento":"Timer",  
+        "TempoRiscaldamento":0, 
+        "TempoRipresa":0 
+    }
+    gruppoAllenante = input("Inserire il gruppo o i gruppi muscolari che si vogliono allenare: ")
+    nEsercizi = int(input("Inserisci il numero di esercizi contenuti in questo allenamento: "))
+    tipoAllenamento = (input("Inserire il numero di serie: "))
