@@ -68,17 +68,36 @@ def creaSuperSet(superset):
     creaEsercizio(set2)
     return superset
 
-def vediEsercizio(esercizio):
+def vediEsercizio(nomeEsercizio):
     #print(f'{"Tipologia:":<15}{"Durata:":<15}{"N° serie:":<15}')
     print(f'{esercizio["TipologiaEsercizio"]:<15}{esercizio["TempoAllenamento"]:<15}{esercizio["Serie"]:<15}')
 
-def vediScheda(scheda):
+def vediScheda(nomeScheda):
     print(scheda["GruppoAllenante"]) #nome !!!
     print(f'{"Tipologia:":<15}{"Durata:":<15}{"N° serie:":<15}')
     count = 0
     while count < len(scheda):
         vediEsercizio(scheda[count])
         count+=1
+def vediSchede():
+    count = 0
+    while count < len(allenamento1):
+        print(allenamento1[count], end='|')
+        count+=1
+def modificaAllenamento(nomeAllenamento):
+    momeAllenamento = {
+        "GruppoAllenante":gruppoAllenante,
+        "NumEsercizi":nEsercizi,
+        "TipoAllenamento":tipoAllenamento,  
+        "TempoRiscaldamento":tempoRiscaldamento, 
+        "TempoRiposo":tempoRiposo
+    }
+    gruppoAllenante = input("Inserire il nuovo gruppo o i nuovi gruppi muscolari che si vogliono allenare: ")
+    nEsercizi = int(input("Inserisci il numero di esercizi contenuti in questo allenamento: "))
+    tipoAllenamento = input("Inserire 1 se è un allenamento contenente solo esercizi con timer, inserire 2 se non vuoi i timer, inserire 3 se è un allenamento sia con timer che senza.")
+    tempoRiscaldamento = int(input("Inserire quanto tempo bisogna riservare per il riscaldamento: "))
+    tempoRiposo = int(input("Inserisci il tempo di riposo tra ogni serie"))
+
     
 
 def modificaEsercizio(esercizio):
