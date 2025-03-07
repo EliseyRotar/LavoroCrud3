@@ -1,4 +1,4 @@
-import os
+from os import system
 import time
 import winsound
 #Programma crea la tua scheda allenamento (timer)
@@ -13,7 +13,8 @@ allenamento1 = {
     "NumEsercizi":0,
     "TipoAllenamento":"Timer", #timer/senza timer/misto
     "TempoRiscaldamento":0, #secondi
-    "TempoRipresa":0 #secondi
+    "TempoRipresa":0, #secondi
+    "ex": [1, 2]
 }
 
 esercizio1 = {
@@ -135,18 +136,22 @@ def modificaSuperSet(superset):
     return superset
 
 def rimuoviEsercizio(lista:list,Allenamento,esercizio):
-    count=0
-    while count < lista[Allenamento][nEsercizi]:
-        lista[count]
+    indice =0
+    while indice < 1 and indice > len(lista)
+        indice=int(input("Inserisci l'indice dell'esercizio da eliminare
+        system('cls')
+    lista.pop(indice)
+    print("L'esercizio è stato rimosso con successo")
+    
     #???????????????????
 
 def rimuoviScheda(lista:list):
-    lista.remove()
-    return 0
-
-def rimuoviAllenamento(lista:list,Allenamento):
-    lista.remove(Allenamento)
-    return lista
+    scelta=input("Sei sicuro di eliminare la tua scheda di allenamento?")
+    if scelta==Si
+        del lista
+        print("La scheda è stata eliminata")
+    return 0 #Forse non serve una funzione
 
 def menu():
 #ELISEY
+#per la funzione creaAllenamento lasciatela a me(Valente)
