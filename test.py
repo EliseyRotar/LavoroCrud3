@@ -43,8 +43,14 @@ def creaEsercizio(esercizio):
     if tipoEsercizio == 1:
         tempoAllenamento = int(input("Inserisci il tempo richiesto per questo esercizio: "))
     numeroSerie = int(input("Inserire il numero di serie: "))
+    return esercizio
 
 def creaAllenamento(allenamento):
+    gruppoAllenante = input("Inserire il gruppo o i gruppi muscolari che si vogliono allenare: ")
+    nEsercizi = int(input("Inserisci il numero di esercizi contenuti in questo allenamento: "))
+    tipoAllenamento = input("Inserire 1 se è un allenamento contenente solo esercizi con timer, inserire 2 se non vuoi i timer, inserire 3 se è un allenamento sia con timer che senza.")
+    tempoRiscaldamento = int(input("Inserire quanto tempo bisogna riservare per il riscaldamento: "))
+    tempoRiposo = int(input("Inserisci il tempo di riposo tra ogni serie"))
     allenamento = {
         "GruppoAllenante":gruppoAllenante,
         "NumEsercizi":nEsercizi,
@@ -52,11 +58,7 @@ def creaAllenamento(allenamento):
         "TempoRiscaldamento":tempoRiscaldamento, 
         "TempoRiposo":tempoRiposo
     }
-    gruppoAllenante = input("Inserire il gruppo o i gruppi muscolari che si vogliono allenare: ")
-    nEsercizi = int(input("Inserisci il numero di esercizi contenuti in questo allenamento: "))
-    tipoAllenamento = input("Inserire 1 se è un allenamento contenente solo esercizi con timer, inserire 2 se non vuoi i timer, inserire 3 se è un allenamento sia con timer che senza.")
-    tempoRiscaldamento = int(input("Inserire quanto tempo bisogna riservare per il riscaldamento: "))
-    tempoRiposo = int(input("Inserisci il tempo di riposo tra ogni serie"))
+    return allenamento
 
 def creaSuperSet(superset):
     set1 = input("Inserisci il nome del primo set: ")
@@ -64,6 +66,7 @@ def creaSuperSet(superset):
     superset = [set1, set2]
     creaEsercizio(set1)
     creaEsercizio(set2)
+    return superset
 
 def vediEsercizio(esercizio):
     #print(f'{"Tipologia:":<15}{"Durata:":<15}{"N° serie:":<15}')
@@ -76,3 +79,55 @@ def vediScheda(scheda):
     while count < len(scheda):
         vediEsercizio(scheda[count])
         count+=1
+    
+
+def modificaEsercizio(esercizio):
+    tipoEsercizio = int(input("Inserire 1 se si vuole avere un timer per questo esercizio, invece inserire qualsiasi altra cosa se non si vuole avere un timer: "))
+    if tipoEsercizio == 1:
+        tempoAllenamento = int(input("Inserisci il tempo richiesto per questo esercizio: "))
+    numeroSerie = int(input("Inserire il numero di serie: "))
+    #fare controllo esistenza variabili
+    return esercizio
+
+def modificaScheda(scheda):
+ 
+    gruppoAllenante = input("Inserire il gruppo o i gruppi muscolari che si vogliono allenare: ")
+    nEsercizi = int(input("Inserisci il numero di esercizi contenuti in questo allenamento: "))
+    tipoAllenamento = input("Inserire 1 se è un allenamento contenente solo esercizi con timer, inserire 2 se non vuoi i timer, inserire 3 se è un allenamento sia con timer che senza.")
+    tempoRiscaldamento = int(input("Inserire quanto tempo bisogna riservare per il riscaldamento: "))
+    tempoRiposo = int(input("Inserisci il tempo di riposo tra ogni serie"))
+    allenamento = {
+        "GruppoAllenante":gruppoAllenante,
+        "NumEsercizi":nEsercizi,
+        "TipoAllenamento":tipoAllenamento,  
+        "TempoRiscaldamento":tempoRiscaldamento, 
+        "TempoRiposo":tempoRiposo
+    }
+    #fare controllo esistenza variabili
+    return scheda
+
+def modificaSuperSet(superset):
+    set1 = input("Inserisci il nuovo nome del primo set: ")
+    set2 = input("Inserisci il nuovo nome del secondo set: ")
+    superset = [set1, set2]
+    modificaEsercizio(set1)
+    modificaEsercizio(set2)
+    #fare controllo esistenza variabili
+    return superset
+
+def rimuoviEsercizio(lista:list,Allenamento,esercizio):
+    count=0
+    while count < lista[Allenamento][nEsercizi]:
+        lista[count]
+    #???????????????????
+
+def rimuoviScheda(lista:list):
+    lista.remove()
+    return 0
+
+def rimuoviAllenamento(lista:list,Allenamento):
+    lista.remove(Allenamento)
+    return lista
+
+def menu():
+#ELISEY
