@@ -137,13 +137,12 @@ def modificaSuperSet(superset):
 
 def rimuoviEsercizio(lista:list,Allenamento,esercizio):
     indice =0
+    vediScheda()
     while indice < 1 and indice > len(lista)
         indice=int(input("Inserisci l'indice dell'esercizio da eliminare
         system('cls')
     lista.pop(indice)
     print("L'esercizio è stato rimosso con successo")
-    
-    #???????????????????
 
 def rimuoviScheda(lista:list):
     scelta=input("Sei sicuro di eliminare la tua scheda di allenamento?")
@@ -152,6 +151,8 @@ def rimuoviScheda(lista:list):
         print("La scheda è stata eliminata")
     return 0 #Forse non serve una funzione
 
+def timer(esercizio,esercizio[:
+    
 def menu():
 #ELISEY
 #per la funzione creaAllenamento lasciatela a me(Valente)
