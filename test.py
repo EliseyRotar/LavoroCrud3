@@ -155,3 +155,75 @@ def rimuoviScheda(lista:list):
 def menu():
 #ELISEY
 #per la funzione creaAllenamento lasciatela a me(Valente)
+
+
+
+
+
+
+#NON MODIFICARE (prendere da riferimento)
+allenamento=50
+pausa=180
+intervallo=15
+inizio = 10
+serie=5
+superset=4
+count=0
+n=0
+t=0
+resto=n%2
+def timer(n):
+    while n:
+        if n==t:
+            print(n)
+            n-=1          
+            winsound.Beep(1000,1000)
+        elif n==5:
+            print("Mancano 5 secondi SPINGI UOMO")
+            n-=1          
+            winsound.Beep(600,1000)
+        elif n==3 or n==1:
+            print(n)
+            n-=1
+            winsound.Beep(600,1000)
+        else:
+            print(n)
+            time.sleep(1)
+            n -= 1
+    os.system('cls')
+
+print("\4--------------------------------------------------\4")
+print("|               Timer x allenamenti                |")
+print("\4 Benvenuto Andrea,buona sessione di allenamento!! \4")
+print("                     Inserire: \n  1)Per iniziare la sessione\n  2)Modificare il piano di allenamento\n  3)Modificare numero serie/superset\n  4)Exit")
+scelta=int(input("   -> "))
+os.system('cls')   
+
+if scelta==2:
+    allenamento=int(input("Inserire quanto voler far durate uno dei due super set: "))
+    pausa=int(input("Inserire quanto voler far durare la pausa: "))
+    intervallo=int(input("Inserisci quanto far durare l'intervallo tra i set"))
+    inizio=int(input("Inserisci fra quanti secondi far iniziare il programma"))
+    numeroserie=int(input("Inserisci il numero di serie: "))
+    numerosuperset=int(input("Inserire il numero di superset: "))
+elif scelta==3:
+    numeroserie=int(input("Inserisci il numero di serie: "))
+    numerosuperset=int(input("Inserire il numero di superset: "))
+elif scelta==4:
+    exit()
+t=inizio
+timer(t)
+for i in range(0,serie):
+    for i in range(0,superset):
+        print("Inizio serie!")
+        t=allenamento
+        timer(t)
+        print("Fra poco si ricomincia!")
+        t=intervallo
+        timer(t)
+        print("Inizio serie!")
+        t=allenamento
+        timer(t)
+        print("Fra poco si ricomincia")
+        t=pausa
+        timer(t)
