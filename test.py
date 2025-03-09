@@ -9,59 +9,66 @@ import winsound
 #Tempo esercizi "timer"/"No timer"
 #PROBLEMI: eccezzioni, numeri scritti in parole, maiuscole
 allenamento1 = {
+    "NomeAllenamento":"crazu",
     "GruppoAllenante":"Schiena",
     "NumEsercizi":0,
     "TipoAllenamento":"Timer", #timer/senza timer/misto
     "TempoRiscaldamento":0, #secondi
-    "TempoRipresa":0, #secondi
-    "ex": [1, 2]
 }
 
 esercizio1 = {
     "TipologiaEsercizio":"Timer", #timer/senza timer
     "TempoAllenamento":10,
     "Serie":2
+    "TempoRiposo":2
 }
 
 esercizio2 = {
     "TipologiaEsercizio":"Timer", #timer/senza timer
     "TempoAllenamento":50,
-    "Serie":1
+    "Serie":1,
+    "TempoRiposo":2
 }
 esercizi = [esercizio1,esercizio2]
 allenamenti = [allenamento1]
 Scheda2 = []
 Scheda1= [allenamento1, esercizio1, esercizio2]
 
+Schede = [Scheda1,Scheda2]
 def creaEsercizio(esercizio):
-    
-    esercizio = {
-        "TipologiaEsercizio":tipoEsercizio,
-        "TempoAllenamento":tempoAllenamento,
-        "Serie": numeroSerie
-    }
+    #controllo (try/except inserire valori accettabili)
     tipoEsercizio = int(input("Inserire 1 se si vuole avere un timer per questo esercizio, invece inserire qualsiasi altra cosa se non si vuole avere un timer: "))
     if tipoEsercizio == 1:
         tempoAllenamento = int(input("Inserisci il tempo richiesto per questo esercizio: "))
     numeroSerie = int(input("Inserire il numero di serie: "))
+    tempoRiposo = int(input("Inserire il tempo di riposo tra le serie: "))
+    esercizio = {
+        "TipologiaEsercizio":tipoEsercizio,
+        "TempoAllenamento":tempoAllenamento,
+        "Serie":numeroSerie,
+        "TempoRiposo":tempoRiposo
+    }
     return esercizio
 
 def creaAllenamento(allenamento):
+    #controllo (try/except inserire valori accettabili)
+    nomeAllenamento = input("Inserire il nuovo nome dell'allenamento: ")
     gruppoAllenante = input("Inserire il gruppo o i gruppi muscolari che si vogliono allenare: ")
     nEsercizi = int(input("Inserisci il numero di esercizi contenuti in questo allenamento: "))
     tipoAllenamento = input("Inserire 1 se è un allenamento contenente solo esercizi con timer, inserire 2 se non vuoi i timer, inserire 3 se è un allenamento sia con timer che senza.")
     tempoRiscaldamento = int(input("Inserire quanto tempo bisogna riservare per il riscaldamento: "))
-    tempoRiposo = int(input("Inserisci il tempo di riposo tra ogni serie"))
     allenamento = {
+        "NomeAllenamento":nomeAllenamento,
         "GruppoAllenante":gruppoAllenante,
         "NumEsercizi":nEsercizi,
         "TipoAllenamento":tipoAllenamento,  
         "TempoRiscaldamento":tempoRiscaldamento, 
-        "TempoRiposo":tempoRiposo
     }
     return allenamento
 
 def creaSuperSet(superset):
+    #controllo (try/except inserire valori accettabili)
+    #DA RIFARE
     set1 = input("Inserisci il nome del primo set: ")
     set2 = input("Inserisci il nome del secondo set: ")
     superset = [set1, set2]
@@ -69,73 +76,87 @@ def creaSuperSet(superset):
     creaEsercizio(set2)
     return superset
 
-def vediEsercizio(nomeEsercizio):
+def vediEsercizio(lista,nomeEsercizio):
+    #controllo (try/except se esistenza esercizio)
     #print(f'{"Tipologia:":<15}{"Durata:":<15}{"N° serie:":<15}')
     print(f'{esercizio["TipologiaEsercizio"]:<15}{esercizio["TempoAllenamento"]:<15}{esercizio["Serie"]:<15}')
 
 def vediScheda(nomeScheda):
-    print(scheda["GruppoAllenante"]) #nome !!!
+    #controllo (try/except se esistenza scheda)
+    print(nomeScheda["GruppoAllenante"])
     print(f'{"Tipologia:":<15}{"Durata:":<15}{"N° serie:":<15}')
     count = 0
     while count < len(scheda):
         vediEsercizio(scheda[count])
         count+=1
-def vediSchede():
+def vediSchede(Schede):
+    #controllo (try/except se c'è almeno una scheda)
     count = 0
-    while count < len(allenamento1):
-        print(allenamento1[count], end='|')
+    while count < len(Schede:list):
+        print(f"{Schede[count][""]")
         count+=1
 def modificaAllenamento(nomeAllenamento):
+    #controllo (try/except se esiste l'allenamento)
+    #controllo (try/except inserire valori accettabili)
     momeAllenamento = {
+        "NomeAllenamento":nomeAllenamento,
         "GruppoAllenante":gruppoAllenante,
         "NumEsercizi":nEsercizi,
         "TipoAllenamento":tipoAllenamento,  
         "TempoRiscaldamento":tempoRiscaldamento, 
-        "TempoRiposo":tempoRiposo
     }
+    nomeAllenamento = input("Inserire il nuovo nome dell'allenamento: ")
     gruppoAllenante = input("Inserire il nuovo gruppo o i nuovi gruppi muscolari che si vogliono allenare: ")
     nEsercizi = int(input("Inserisci il numero di esercizi contenuti in questo allenamento: "))
     tipoAllenamento = input("Inserire 1 se è un allenamento contenente solo esercizi con timer, inserire 2 se non vuoi i timer, inserire 3 se è un allenamento sia con timer che senza.")
     tempoRiscaldamento = int(input("Inserire quanto tempo bisogna riservare per il riscaldamento: "))
-    tempoRiposo = int(input("Inserisci il tempo di riposo tra ogni serie"))
-
+    return nomeAllenamento
     
 
-def modificaEsercizio(esercizio):
+def modificaEsercizio(scheda:list,esercizio):
+    #controllo (try/except controllo se l'esercizio esiste)
+    #controllo (try/except inserire valori accettabili)
     tipoEsercizio = int(input("Inserire 1 se si vuole avere un timer per questo esercizio, invece inserire qualsiasi altra cosa se non si vuole avere un timer: "))
     if tipoEsercizio == 1:
         tempoAllenamento = int(input("Inserisci il tempo richiesto per questo esercizio: "))
     numeroSerie = int(input("Inserire il numero di serie: "))
-    #fare controllo esistenza variabili
+    tempoRiposo = int(input("Inserire il tempo di riposo tra le serie: "))
+    esercizio = {
+        "TipologiaEsercizio":tipoEsercizio,
+        "TempoAllenamento":tempoAllenamento,
+        "Serie":numeroSerie,
+        "TempoRiposo":tempoRiposo,
+        
+    }
     return esercizio
 
 def modificaScheda(scheda):
- 
+    #controllo (try/except controllo se la scheda esiste)
+    #controllo (try/except inserire valori accettabili)
     gruppoAllenante = input("Inserire il gruppo o i gruppi muscolari che si vogliono allenare: ")
     nEsercizi = int(input("Inserisci il numero di esercizi contenuti in questo allenamento: "))
     tipoAllenamento = input("Inserire 1 se è un allenamento contenente solo esercizi con timer, inserire 2 se non vuoi i timer, inserire 3 se è un allenamento sia con timer che senza.")
     tempoRiscaldamento = int(input("Inserire quanto tempo bisogna riservare per il riscaldamento: "))
-    tempoRiposo = int(input("Inserisci il tempo di riposo tra ogni serie"))
     allenamento = {
         "GruppoAllenante":gruppoAllenante,
         "NumEsercizi":nEsercizi,
         "TipoAllenamento":tipoAllenamento,  
         "TempoRiscaldamento":tempoRiscaldamento, 
-        "TempoRiposo":tempoRiposo
     }
-    #fare controllo esistenza variabili
     return scheda
 
 def modificaSuperSet(superset):
+    #controllo (try/except controllo esistenza superset)
     set1 = input("Inserisci il nuovo nome del primo set: ")
     set2 = input("Inserisci il nuovo nome del secondo set: ")
     superset = [set1, set2]
     modificaEsercizio(set1)
     modificaEsercizio(set2)
-    #fare controllo esistenza variabili
+
     return superset
 
-def rimuoviEsercizio(lista:list,Allenamento,esercizio):
+def rimuoviEsercizio(lista:list,esercizio):
+    #controllo (try/except controllo se l'allenamento esiste)
     indice =0
     vediScheda()
     while indice < 1 and indice > len(lista)
@@ -145,24 +166,41 @@ def rimuoviEsercizio(lista:list,Allenamento,esercizio):
     print("L'esercizio è stato rimosso con successo")
 
 def rimuoviScheda(lista:list):
+    #controllo (try/except controllo se la scheda esiste)
     scelta=input("Sei sicuro di eliminare la tua scheda di allenamento?")
-    if scelta==Si
+    if scelta==Si:
         del lista
         print("La scheda è stata eliminata")
-    return 0 #Forse non serve una funzione
+    return 0 
 
-def timer(esercizio,esercizio[:
+def timer(nomeEsercizio):
+    
+def start(Scheda:list):
+    Scheda
+    count=1
+    while count < len(Scheda):
+        timer(Scheda[count])
+              count+=1
+        
     
 def menu():
+    
 #ELISEY
 #per la funzione creaAllenamento lasciatela a me(Valente)
+#Elisey se vuoi prendi spunto da questo menu che avevo fatto io
+#Per ogni punto del menù fare attenzione se serve inserirlo in una lista
+print("\4--------------------------------------------------\4")
+print("|               Timer x allenamenti                |")
+print("\4 Benvenuto Andrea,buona sessione di allenamento!! \4")
+print("                     Inserire: \n  1)Per iniziare la sessione\n  2)Modificare il piano di allenamento\n  3)Modificare numero serie/superset\n  4)Exit")
+scelta=int(input("   -> "))
+os.system('cls')   
 
 
 
 
 
-
-#NON MODIFICARE (prendere da riferimento)
+#NON ELIMINARE (prendere da riferimento)
 allenamento=50
 pausa=180
 intervallo=15
@@ -192,26 +230,6 @@ def timer(n):
             time.sleep(1)
             n -= 1
     os.system('cls')
-
-print("\4--------------------------------------------------\4")
-print("|               Timer x allenamenti                |")
-print("\4 Benvenuto Andrea,buona sessione di allenamento!! \4")
-print("                     Inserire: \n  1)Per iniziare la sessione\n  2)Modificare il piano di allenamento\n  3)Modificare numero serie/superset\n  4)Exit")
-scelta=int(input("   -> "))
-os.system('cls')   
-
-if scelta==2:
-    allenamento=int(input("Inserire quanto voler far durate uno dei due super set: "))
-    pausa=int(input("Inserire quanto voler far durare la pausa: "))
-    intervallo=int(input("Inserisci quanto far durare l'intervallo tra i set"))
-    inizio=int(input("Inserisci fra quanti secondi far iniziare il programma"))
-    numeroserie=int(input("Inserisci il numero di serie: "))
-    numerosuperset=int(input("Inserire il numero di superset: "))
-elif scelta==3:
-    numeroserie=int(input("Inserisci il numero di serie: "))
-    numerosuperset=int(input("Inserire il numero di superset: "))
-elif scelta==4:
-    exit()
 t=inizio
 timer(t)
 for i in range(0,serie):
