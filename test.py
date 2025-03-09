@@ -7,7 +7,7 @@ import winsound
 #Numero serie
 #Tipi esercizi e il loro nome
 #Tempo esercizi "timer"/"No timer"
-#PROBLEMI: eccezzioni, numeri scritti in parole, maiuscole
+#PROBLEMI: eccezzioni, numeri scritti in parole, maiuscole, far funzionare tutto
 allenamento1 = {
     "NomeAllenamento":"crazu",
     "GruppoAllenante":"Schiena",
@@ -19,7 +19,7 @@ allenamento1 = {
 esercizio1 = {
     "TipologiaEsercizio":"Timer", #timer/senza timer
     "TempoAllenamento":10,
-    "Serie":2
+    "Serie":2,
     "TempoRiposo":2
 }
 
@@ -68,7 +68,7 @@ def creaAllenamento(allenamento):
 
 def creaSuperSet(superset):
     #controllo (try/except inserire valori accettabili)
-    #DA RIFARE
+    #DA RIFARE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     set1 = input("Inserisci il nome del primo set: ")
     set2 = input("Inserisci il nome del secondo set: ")
     superset = [set1, set2]
@@ -79,40 +79,24 @@ def creaSuperSet(superset):
 def vediEsercizio(lista,nomeEsercizio):
     #controllo (try/except se esistenza esercizio)
     #print(f'{"Tipologia:":<15}{"Durata:":<15}{"N° serie:":<15}')
-    print(f'{esercizio["TipologiaEsercizio"]:<15}{esercizio["TempoAllenamento"]:<15}{esercizio["Serie"]:<15}')
+    print(f'{nomeEsercizio["TipologiaEsercizio"]:<15}{nomeEsercizio["TempoAllenamento"]:<15}{nomeEsercizio["Serie"]:<15}')
 
 def vediScheda(nomeScheda):
     #controllo (try/except se esistenza scheda)
     print(nomeScheda["GruppoAllenante"])
     print(f'{"Tipologia:":<15}{"Durata:":<15}{"N° serie:":<15}')
     count = 0
-    while count < len(scheda):
-        vediEsercizio(scheda[count])
+    while count < len(nomeScheda):
+        vediEsercizio(nomeScheda[count])
         count+=1
-def vediSchede(Schede):
+def vediSchede(Schede:list):
     #controllo (try/except se c'è almeno una scheda)
+    #DA FINIRE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     count = 0
-    while count < len(Schede:list):
-        print(f"{Schede[count][""]")
+    while count < len(Schede):
+        print(f'{Schede[count][""]')
         count+=1
-def modificaAllenamento(nomeAllenamento):
-    #controllo (try/except se esiste l'allenamento)
-    #controllo (try/except inserire valori accettabili)
-    momeAllenamento = {
-        "NomeAllenamento":nomeAllenamento,
-        "GruppoAllenante":gruppoAllenante,
-        "NumEsercizi":nEsercizi,
-        "TipoAllenamento":tipoAllenamento,  
-        "TempoRiscaldamento":tempoRiscaldamento, 
-    }
-    nomeAllenamento = input("Inserire il nuovo nome dell'allenamento: ")
-    gruppoAllenante = input("Inserire il nuovo gruppo o i nuovi gruppi muscolari che si vogliono allenare: ")
-    nEsercizi = int(input("Inserisci il numero di esercizi contenuti in questo allenamento: "))
-    tipoAllenamento = input("Inserire 1 se è un allenamento contenente solo esercizi con timer, inserire 2 se non vuoi i timer, inserire 3 se è un allenamento sia con timer che senza.")
-    tempoRiscaldamento = int(input("Inserire quanto tempo bisogna riservare per il riscaldamento: "))
-    return nomeAllenamento
-    
-
+        
 def modificaEsercizio(scheda:list,esercizio):
     #controllo (try/except controllo se l'esercizio esiste)
     #controllo (try/except inserire valori accettabili)
@@ -160,7 +144,7 @@ def rimuoviEsercizio(lista:list,esercizio):
     indice =0
     vediScheda()
     while indice < 1 and indice > len(lista)
-        indice=int(input("Inserisci l'indice dell'esercizio da eliminare
+        indice=int(input("Inserisci l'indice dell'esercizio da eliminare")
         system('cls')
     lista.pop(indice)
     print("L'esercizio è stato rimosso con successo")
