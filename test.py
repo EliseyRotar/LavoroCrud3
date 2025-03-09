@@ -17,6 +17,7 @@ allenamento1 = {
 }
 
 esercizio1 = {
+    "NomeEsercizio":"Push-up",
     "TipologiaEsercizio":"Timer", #timer/senza timer
     "TempoAllenamento":10,
     "Serie":2,
@@ -24,6 +25,7 @@ esercizio1 = {
 }
 
 esercizio2 = {
+    "NomeEsercizio":"Tiger push-up",
     "TipologiaEsercizio":"Timer", #timer/senza timer
     "TempoAllenamento":50,
     "Serie":1,
@@ -37,12 +39,14 @@ Scheda1= [allenamento1, esercizio1, esercizio2]
 Schede = [Scheda1,Scheda2]
 def creaEsercizio(esercizio):
     #controllo (try/except inserire valori accettabili)
+    nomeEsercizio = input("Inserire il nome dell'esercizio: ")
     tipoEsercizio = int(input("Inserire 1 se si vuole avere un timer per questo esercizio, invece inserire qualsiasi altra cosa se non si vuole avere un timer: "))
     if tipoEsercizio == 1:
         tempoAllenamento = int(input("Inserisci il tempo richiesto per questo esercizio: "))
     numeroSerie = int(input("Inserire il numero di serie: "))
     tempoRiposo = int(input("Inserire il tempo di riposo tra le serie: "))
     esercizio = {
+        "NomeEsercizio":nomeEsercizio,
         "TipologiaEsercizio":tipoEsercizio,
         "TempoAllenamento":tempoAllenamento,
         "Serie":numeroSerie,
@@ -76,12 +80,12 @@ def creaSuperSet(superset):
     creaEsercizio(set2)
     return superset
 
-def vediEsercizio(lista,nomeEsercizio):
+def vediEsercizio(lista:list,esercizio:dict):
     #controllo (try/except se esistenza esercizio)
     #print(f'{"Tipologia:":<15}{"Durata:":<15}{"N° serie:":<15}')
-    print(f'{nomeEsercizio["TipologiaEsercizio"]:<15}{nomeEsercizio["TempoAllenamento"]:<15}{nomeEsercizio["Serie"]:<15}')
+    print(f'{esercizio["TipologiaEsercizio"]:<15}{esercizio["TempoAllenamento"]:<15}{esercizio["Serie"]:<15}')
 
-def vediScheda(nomeScheda):
+def vediScheda(nomeScheda:dict):
     #controllo (try/except se esistenza scheda)
     print(nomeScheda["GruppoAllenante"])
     print(f'{"Tipologia:":<15}{"Durata:":<15}{"N° serie:":<15}')
@@ -89,6 +93,7 @@ def vediScheda(nomeScheda):
     while count < len(nomeScheda):
         vediEsercizio(nomeScheda[count])
         count+=1
+        
 def vediSchede(Schede:list):
     #controllo (try/except se c'è almeno una scheda)
     #DA FINIRE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -97,21 +102,23 @@ def vediSchede(Schede:list):
         print(f'{Schede[count][""]')
         count+=1
         
-def modificaEsercizio(scheda:list,esercizio):
+def modificaEsercizio(scheda:list,esercizio:dict):
     #controllo (try/except controllo se l'esercizio esiste)
     #controllo (try/except inserire valori accettabili)
+    nomeEsercizio = input("Inserisci il nome dell'esercizio")
     tipoEsercizio = int(input("Inserire 1 se si vuole avere un timer per questo esercizio, invece inserire qualsiasi altra cosa se non si vuole avere un timer: "))
     if tipoEsercizio == 1:
         tempoAllenamento = int(input("Inserisci il tempo richiesto per questo esercizio: "))
     numeroSerie = int(input("Inserire il numero di serie: "))
-    tempoRiposo = int(input("Inserire il tempo di riposo tra le serie: "))
+    tempoRiposo = int(input("Inserire il tempo di riposo tra le serie: ")
     esercizio = {
+        "NomeEsercizio":nomeEsercizio,
         "TipologiaEsercizio":tipoEsercizio,
         "TempoAllenamento":tempoAllenamento,
         "Serie":numeroSerie,
-        "TempoRiposo":tempoRiposo,
-        
+        "TempoRiposo":tempoRiposo
     }
+    
     return esercizio
 
 def modificaScheda(scheda):
@@ -131,6 +138,7 @@ def modificaScheda(scheda):
 
 def modificaSuperSet(superset):
     #controllo (try/except controllo esistenza superset)
+    #DA RIFARE!!!!!!!!!!!!!!!!!!!!!!
     set1 = input("Inserisci il nuovo nome del primo set: ")
     set2 = input("Inserisci il nuovo nome del secondo set: ")
     superset = [set1, set2]
@@ -139,7 +147,7 @@ def modificaSuperSet(superset):
 
     return superset
 
-def rimuoviEsercizio(lista:list,esercizio):
+def rimuoviEsercizio(lista:list,esercizio:dict):
     #controllo (try/except controllo se l'allenamento esiste)
     indice =0
     vediScheda()
@@ -156,11 +164,47 @@ def rimuoviScheda(lista:list):
         del lista
         print("La scheda è stata eliminata")
     return 0 
-
-def timer(nomeEsercizio):
+def timerSuperset(superSet:dict):
+    #DA FARE
+def timerEsercizio(esercizio:dict):
+    count=1
+    while count < esercizio["NumeroSerie"]:
+        if count == esercizio["NumeroSerie"]:
+            print("Inizio serie")
+            timer(esercizio["TempoAllenamento"])
+        else:
+            print("Inizio serie")
+            timer(esercizio["TempoAllenamento"])
+            print("Inizio riposo")
+            timer(esercizio["TempoRiposo"])
+        count +=1
+            
+def timer(n):
+    t = n
+    while n:
+        if n==t:
+            print(n)
+            n-=1          
+            winsound.Beep(1000,1000)
+        elif n==5:
+            print("Mancano 5 secondi SPINGI UOMO")
+            n-=1          
+            winsound.Beep(600,1000)
+        elif n==3 or n==1:
+            print(n)
+            n-=1
+            winsound.Beep(600,1000)
+        else:
+            print(n)
+            time.sleep(1)
+            n -= 1
+    system.('cls')
+        
+        
+    
+    
     
 def start(Scheda:list):
-    Scheda
     count=1
     while count < len(Scheda):
         timer(Scheda[count])
@@ -171,14 +215,14 @@ def menu():
     
 #ELISEY
 #per la funzione creaAllenamento lasciatela a me(Valente)
-#Elisey se vuoi prendi spunto da questo menu che avevo fatto io
-#Per ogni punto del menù fare attenzione se serve inserirlo in una lista
+#Elisey se vuoi prendi spunto da questo menu che avevo fatt
+#Per ogni punto del menù fare attenzione se serve inserire o togliere qualcosa da una lista
 print("\4--------------------------------------------------\4")
 print("|               Timer x allenamenti                |")
 print("\4 Benvenuto Andrea,buona sessione di allenamento!! \4")
 print("                     Inserire: \n  1)Per iniziare la sessione\n  2)Modificare il piano di allenamento\n  3)Modificare numero serie/superset\n  4)Exit")
 scelta=int(input("   -> "))
-os.system('cls')   
+system('cls')   
 
 
 
