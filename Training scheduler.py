@@ -4,10 +4,10 @@ import winsound
 #Programma crea la tua scheda allenamento (timer)
 #PROBLEMI: (numeri scritti in parole, maiuscole) far funzionare tutto, timer SuperSet, cambiare nome variabili, problemi con le liste
 #PARTI:
-#POLI: Funzioni di Superset, aggiunte varie
-# VERDE: Gestione eccezzioni e controlli
+#POLI: Funzioni di Superset
+#VERDE: Gestione eccezzioni e controlli
 #ELISEY: Il menu, ReadME, aggiunte varie
-#VALENTE: Il resto + correzione errori 
+#VALENTE: Il resto + correzione errori degli altri e aggiunte varie
 allenamento1 = {
     "NomeAllenamento":"crazy",
     "GruppoAllenante":"Schiena",
@@ -101,7 +101,6 @@ def creaSuperSet(superset):
     superSet = {
                 "NomeEsercizio1": NomeEsercizio1,
                 "NomeEsercizio2": NomeEsercizio2,
-
                 "TempoAllenamento1": TempoAllenamento1,
                 "TempoAllenamento2": TempoAllenamento2,
                 "Serie": Serie,
@@ -225,13 +224,10 @@ def modificaSuperSet(superset):
         # Controllo se il superset esiste
         if superset is None:
             raise ValueError("Il superset non esiste.")
-        #VALENTE  CE NE SONO DUE capisco qual'è quello giusto
         #  controllo con il try/except
         try:
             NomeEsercizio1 = input("Inserire il nome del primo esercizio: ")
             NomeEsercizio2 = input("Inserisci il nome del secondo esercizio: ")
-            TipologiaEsercizio1 = input("Inserisci la tipologia del primo esercizio: ")
-            TipologiaEsercizio2 = input("Inserisci la tipologia del secondo esercizio: ")
             if TempoAllenamento1 <= 0 and TempoAllenamento2 <= 0 and Serie <= 0 and TempoRiposo1 < 0 and TempoRiposo2 < 0:
                 TempoAllenamento1 = int(input("Inserisci il tempo del primo esercizio: "))
                 TempoAllenamento2 = int(input("Inserisci il tempo del secondo esercizio: "))
@@ -252,8 +248,6 @@ def modificaSuperSet(superset):
             superSet = {
                 "NomeEsercizio1": NomeEsercizio1,
                 "NomeEsercizio2": NomeEsercizio2,
-                "TipologiaEsercizio1": TipologiaEsercizio1,
-                "TipologiaEsercizio2": TipologiaEsercizio2,
                 "TempoAllenamento1": TempoAllenamento1,
                 "TempoAllenamento2": TempoAllenamento2,
                 "Serie": Serie,
@@ -481,7 +475,11 @@ def menu():
     else:
             print("Scelta non valida")
         
-#print(f'{"Tipologia:":<15}{"Durata:":<15}{"N° serie:":<15}') funzione vediEsercizio
+#print(f'{"Tipologia:":<15}{"Durata:":<15}{"N° serie:":<15}') funzione vediEsercizio <--DEVI ANCORA IMPLEMENTARE QUESTA 
+#Nel menù manca la parte del:
+#creare la lista che contiene le dict (allenamento più esercizi)
+#va implementata nella parte del menù crea allenamento
+#Che cos'è .update?
 menu() 
 
 
