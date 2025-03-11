@@ -111,7 +111,7 @@ def creaSuperSet(superset):
         
         try:
             TempoAllenamento1 = int(input("Inserisci il tempo del primo esercizio: "))
-            if TempoAllenamento1 <= 0:
+            if TempoAllenamento1 <= 0 and:
                 raise ValueError("Il tempo del primo esercizio deve essere maggiore di zero.")
             
             TempoAllenamento2 = int(input("Inserisci il tempo del secondo esercizio: "))
@@ -288,18 +288,14 @@ def modificaSuperSet(superset):
             NomeEsercizio2 = input("Inserisci il nome del secondo esercizio: ")
             TipologiaEsercizio1 = input("Inserisci la tipologia del primo esercizio: ")
             TipologiaEsercizio2 = input("Inserisci la tipologia del secondo esercizio: ")
+            if TempoAllenamento1 <= 0 and TempoAllenamento2 <= 0 and Serie <= 0 and TempoRiposo1 < 0 and TempoRiposo2 < 0:
+                TempoAllenamento1 = int(input("Inserisci il tempo del primo esercizio: "))
+                TempoAllenamento2 = int(input("Inserisci il tempo del secondo esercizio: "))
+                Serie = int(input("Inserisci il numero di serie: "))
+                TempoRiposo1 = int(input("Inserisci il tempo di recupero del primo esercizio: "))
+                TempoRiposo2 = int(input("Inserisci il tempo di recupero del secondo esercizio: "))
             
-            TempoAllenamento1 = int(input("Inserisci il tempo del primo esercizio: "))
-            if TempoAllenamento1 <= 0:
                 raise ValueError("Il tempo del primo esercizio deve essere maggiore di zero.")
-            
-            TempoAllenamento2 = int(input("Inserisci il tempo del secondo esercizio: "))
-            if TempoAllenamento2 <= 0:
-                raise ValueError("Il tempo del secondo esercizio deve essere maggiore di zero.")
-            
-            Serie = int(input("Inserisci il numero di serie: "))
-            if Serie <= 0:
-                raise ValueError("Il numero di serie deve essere maggiore di zero.")
             
             TempoRiposo1 = int(input("Inserisci il tempo di recupero del primo esercizio: "))
             if TempoRiposo1 < 0:
