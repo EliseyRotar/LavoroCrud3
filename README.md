@@ -62,8 +62,10 @@ Alcune funzioni superset potrebbero essere in sviluppo.
 Gestione errori migliorabile per input complessi.
 
 # Crediti 👏
-Poli/Verde: Gestione errori e superset.
+Poli: Creazione superset e creazione base del core.
 
-Elisey: Sistema di menu.
+Verde: Gestione errori (Try-Except).
+
+Elisey: Sistema di menu e creazione base del core.
 
 Valente: Core del programma e timer.
