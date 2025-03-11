@@ -476,6 +476,7 @@ def menu():
             print("Scelta non valida")
         
 #print(f'{"Tipologia:":<15}{"Durata:":<15}{"N° serie:":<15}') funzione vediEsercizio <--DEVI ANCORA IMPLEMENTARE QUESTA 
+#devi fare tutto scalare di uno nel menù dal 13 in poi
 #Nel menù manca la parte del:
 #creare la lista che contiene le dict (allenamento più esercizi)
 #va implementata nella parte del menù crea allenamento
