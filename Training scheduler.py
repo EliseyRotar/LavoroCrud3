@@ -23,6 +23,18 @@ esercizio1 = {
     "TempoRiposo":2
 }
 
+superset1 = {
+    "NomeEsercizio":"Push-up",
+    "NomeEsercizio2":"curl",
+    "TipologiaEsercizio1":"Timer",
+    "TipologiaEsercizio2":"Timer", #timer/senza timer
+    "TempoAllenamento1":10,
+    "TempoAllenamento2":23,
+    "Serie":2,
+    "TempoRiposo1":2,
+    "TempoRiposo2": 6
+}
+
 esercizio2 = {
     "NomeEsercizio":"Tiger push-up",
     "TipologiaEsercizio":"Timer", #timer/senza timer
