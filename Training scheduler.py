@@ -362,16 +362,15 @@ def rimuoviScheda(lista: list):
         print(f"Errore: {e}")
 
 
-def timerSuperset(superSet: dict):
-    try:       #controllo se il timersuperset esiste   valente ma e giusto il modo che sto usando?
-        if superSet is None or not superSet:
-            raise ValueError("Il superset non esiste o è vuoto.")
+#def timerSuperset(superSet: dict): non funzionante
+    #try:       
+       # if superSet is None or not superSet:
+           # raise ValueError("Il superset non esiste o è vuoto.")
         
-        print("Il superset esiste avvio il timer...")
+        #print("Il superset esiste avvio il timer...")
     
-        
-    except ValueError as e: #in eccezzione:
-        print(f"Errore: {e}")
+    #except ValueError as e: #in eccezzione:
+      #  print(f"Errore: {e}")
     
 
 def timer(n):
