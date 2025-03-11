@@ -1,4 +1,4 @@
-# Training Scheduler 🏋️♂️
+# Training Scheduler 🏋️
 
 Un programma Python per creare e gestire schede di allenamento personalizzate con timer integrato. Ideale per organizzare esercizi, superset e allenamenti completi con facilità.
 
@@ -62,10 +62,10 @@ Alcune funzioni superset potrebbero essere in sviluppo.
 Gestione errori migliorabile per input complessi.
 
 # Crediti 👏
-Poli: Creazione superset e creazione base del core.
+Poli: Creazione superset.
 
 Verde: Gestione errori (Try-Except).
 
-Elisey: Sistema di menu e creazione base del core.
+Elisey: Sistema di menu, ReadME e aiuto base.
 
 Valente: Core del programma e timer.
