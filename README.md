@@ -62,10 +62,10 @@ Alcune funzioni superset potrebbero essere in sviluppo.
 Gestione errori migliorabile per input complessi.
 
 # Crediti 👏
-Poli: Creazione superset.
+Poli: Creazione superset e aiuto base
 
 Verde: Gestione errori (Try-Except).
 
 Elisey: Sistema di menu, ReadME e aiuto base.
 
-Valente: Core del programma e timer.
+Valente: Core del programma e timer e aiuto base
